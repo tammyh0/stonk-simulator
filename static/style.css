@@ -237,6 +237,7 @@ input:focus {
   margin: 0.4em 0;
   visibility: hidden;
   width: 50%;
+  z-index: 1;
 }
 
 .auto-complete li {
@@ -249,6 +250,7 @@ input:focus {
 
 .dropdown {
   display: none; 
+  z-index: 2;
 }
 
 .navbar-toggler {
@@ -267,6 +269,7 @@ input:focus {
 .navbar-nav {
   margin-top: 1.4em;
   text-align: right;
+  z-index: 2;
 }
 
 
