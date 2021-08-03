@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+
+    <!-- Bootstrap CSS  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <!-- Favicon -->
+    <link href="/static/favicon.ico" rel="icon">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+
+    <!-- Nunito Sans Font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      {% block title %} Home {% endblock %} | Stonk Simulator
+    </title>
+  </head>
+
+  <body class="fw-normal">
+    <div class="container">
+      {% if not hideNav %}
+      <!-- Beginning of Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
+        <div class="container-fluid d-flex justify-content-between">
+          <!-- Beginning of Logo -->
+          <a class="navbar-brand" href="/">
+            <img src="static/stonks_logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+            <div class="navbar-brand-text align-text-top">
+              <h1>Stonkz</h1>
+              <p>Beginner stock simulator</p>
+            </div>
+          </a>
+          <!-- End of Logo -->
+          <!-- Beginning of Search Bar -->
+          {% if hideSearch == False %}
+          <form class="search font-size-16 primary-color-900" action="/view" method="POST">
+            <input class="search-bar" type="text" name="stock" value="" autocomplete="off" placeholder="🔍 Search a stock..."> 
+            <ul class="auto-complete shadow paper-bg-color"></ul>
+          </form>
+          {% endif %}
+          <!-- End of Search Bar -->
+          <!-- Beginning of Nav Toggler -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link font-size-18 normal" href="/history">Transactions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link font-size-18 normal" href="/account">Account</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link font-size-18 semi-bold" href="/logout">Logout</a>
+              </li>
+            </ul>
+          </div>
+          <!-- End of Nav Toggler -->
+          <!-- Beginning of Dropdown -->
+          <div class="dropdown">
+            <a class="nav-link dropdown-toggle semi-bold" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown">
+              {{ username }}
+            </a>
+            <ul class="dropdown-menu shadow">
+              <li><a class="dropdown-item" href="/history">Transactions</a></li>
+              <li><a class="dropdown-item" href="/account">Account</a></li>
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
+          </div>
+          <!-- End of Dropdown -->
+        </div>
+      </nav>
+      <!-- End of Navbar -->
+      {% endif %}
+      <!-- Beginning of Main Content -->
+      <main class="d-flex justify-content-center flex-column">
+        {% block main %}{% endblock %}
+      </main>
+      <!-- End of Main Content -->
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- Custom JS -->
+    <script type="module" src="./static/js/search.js"></script>
+
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

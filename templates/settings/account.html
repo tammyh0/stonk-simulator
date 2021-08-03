@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %} Account {% endblock %}
+
+{% block main %}
+<!-- Beginning of Account Content -->
+<div class="container account-container">
+  <h1>My Account</h1>
+  <hr>
+  <p><b>Username: </b>{{ username }}</p>
+  <form action="/reset" method="POST">
+    <button type="submit" class="btn success-color">Reset cash</button>
+  </form>
+  <form action="/delete" method="POST">
+    <button type="submit" class="btn btn-outline-danger">Delete account</button>
+  </form>
+</div>
+<!-- End of Account Content -->
+{% endblock %}

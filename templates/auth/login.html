@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %} Login {% endblock %}
+
+{% block main %}
+<!-- Beginning of Login Content -->
+<div class="container d-flex flex-column justify-content-center login-container">
+  <!-- Beginning of Error Alert -->  
+  {% if error %}
+  <div class="alert alert-danger font-size-16 semi-bold" role="alert">
+      {{ error }}
+  </div>
+  {% endif %}
+  <!-- End of Error Alert -->  
+  <!-- Beginning of Introduction -->  
+  <div class="d-flex justify-content-center flex-column auth-title">
+    <img src="static/stonks_logo.png" alt="Logo">
+    <h1>Welcome back to the Stonk Simulator</h1>
+    <p class="font-size-18 secondary-text-color">Practice real-time investing in the stock market with not-so-real money!</p>
+  </div>
+  <!-- End of Introduction -->  
+  <!-- Beginning of Login Form --> 
+  <form class="login-inputs d-flex justify-content-center flex-column" autocomplete="off" action="/login" method="POST">
+    <div class="mb-3">
+      <label for="usernameInput" class="form-label font-size-16 secondary-text-color">Username</label>
+      <input type="text" class="form-control font-size-18" name="username" id="usernameInput">
+    </div>
+    <div class="mb-3">
+      <label for="passwordInput" class="form-label font-size-16 secondary-text-color">Password</label>
+      <input type="password" class="form-control font-size-18" name="password" id="passwordInput">
+    </div>
+    <button type="submit" class="btn primary-color-600">Login</button>
+    <div id="registerLink" class="form-text font-size-16 d-flex justify-content-center">Don't have an account? &nbsp;<a class="semi-bold" href="/register">Register</a></div>
+  </form>
+  <!-- End of Login Form -->
+</div>
+<!-- End of Login Content -->
+{% endblock %}

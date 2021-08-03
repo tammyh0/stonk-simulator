@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block main %}
+  <div class="dash-container">
+    {% if transactionSuccess == True %}
+      <div class="alert alert-success" role="alert">
+        {% if type == "buy" %}
+        Success! You just bought {{ units }} units of {{ symbol }}.
+        {% elif type == "sell" %}
+        Success! You just sold {{ units }} units of {{ symbol }}.
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <!-- Beginning of Home Content -->
+    <div class="grand-total">
+      <h1>Your Portfolio</h1>
+      <h2>${{ total }}</h2>
+    </div>
+    <div class="card default-bg-color shadow-sm">
+      <div class="card-body cash d-flex justify-content-between align-items-start">
+        <h3>Cash</h3>
+        <p>${{ cash }}</p>
+      </div>
+    </div>
+    <div class="card default-bg-color shadow-sm">
+      <div class="card-body holdings">
+        <h3>Holdings</h3>
+        <hr>
+        {% for holding in currentHoldings %}
+          <div class="holding-item">
+            <div class="holding-title d-flex justify-content-between">
+              <p>{{ holding["name"] }}</p>
+              <p>${{ holding["price"] }}</p>
+            </div>
+            <div class="holding-price">
+              <p>{{ holding["shares"] }} shares</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <!-- End of Home Content -->
+
+{% endblock %}

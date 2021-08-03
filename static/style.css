@@ -1,0 +1,624 @@
+
+/***** GENERAL STYLES *****/
+
+* {
+  /* setting width will include any padding and border; content will shrink to absorb any extra width */
+  box-sizing: border-box;
+  /* global reset: all elements will have a padding and margin on 0 unless specified later */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Equivalent to 10px */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+a {
+  color: #202020;
+  text-decoration: none;
+}
+
+h1 {
+  color: #212121;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+h2 {
+  font-size: 3.6rem;
+  font-weight: 600;
+  margin-bottom: 0.2em;
+}
+
+h3 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0.8em;
+}
+
+input:focus {
+  outline: none;
+}
+
+.card {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 2rem;
+  margin-bottom: 4em;
+}
+
+.btn {
+  color: white;
+  border-radius: 2em;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 2em;
+  padding: 0.5rem 4rem;
+  transition: none;
+}
+
+.btn:hover {
+  color: white;
+}
+
+.alert {
+  border-radius: 0.5rem;
+}
+
+/* FONT */
+
+.bold {
+  font-weight: 700;
+}
+
+.semi-bold {
+  font-weight: 600;
+}
+
+.normal {
+  font-weight: 500;
+}
+
+.font-size-16 {
+  font-size: 1.6rem;
+}
+
+.font-size-18 {
+  font-size: 1.8rem;
+}
+
+.font-size-20 {
+  font-size: 2rem;
+}
+
+.font-size-24 {
+  font-size: 2.4rem;
+}
+
+
+/* COLORS */
+
+.primary-text-color {
+  color: #212121;
+}
+
+.secondary-text-color {
+  color: #737373;
+}
+
+.disabled-text-color {
+  color: #9b9b9b;
+}
+
+.disabled-button-bg-color,
+.divider-color {
+  background-color: #dcdcdc;
+}
+
+.default-bg-color {
+  background-color: #fafafa;
+}
+
+.paper-bg-color {
+  background-color: #ffffff;
+}
+
+.primary-color-100 {
+  background-color: #d6f7ff;
+}
+
+.primary-color-200 {
+  background-color: #adebff;
+}
+
+.primary-color-300 {
+  background-color: #84daff;
+}
+
+.primary-color-400 {
+  background-color: #66c8ff;
+}
+
+.primary-color-500 {
+  /* THE primary color */
+  color: #33abff;
+}
+
+.primary-color-600 {
+  background-color: #2585db;
+}
+
+.primary-color-700 {
+  background-color: #1964b7;
+}
+
+.primary-color-800 {
+  color: #104693;
+}
+
+.primary-color-900 {
+  color: #09327a;
+}
+
+.accent-color-blue {
+  color: #3345ff;
+}
+
+.accent-color-cyan {
+  color: #33ffed;
+}
+
+.success-color {
+  background-color: #5dc122;
+}
+
+.info-color {
+  background-color: #70b2ff;
+}
+
+.warning-color {
+  color: #ffef1c;
+}
+
+.danger-color {
+  color: #ff4e3a;
+}
+
+
+/***** HEADER AND NAVIGATION *****/
+
+.navbar {
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+.navbar-brand-text {
+  display: none; /* otherwise, display: inline-block */
+  margin-left: 0.4em;
+}
+
+.navbar-brand p {
+  color: #737373;
+  font-weight: 600;
+  margin: 0;
+}
+
+.search {
+  max-width: 100%;
+}
+
+.search-bar {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5rem;
+  padding: 0.3em 1em;
+  width: 100%;
+}
+
+.search-bar::placeholder {
+  color: #09327a;
+}
+
+.search-bar:focus::placeholder {
+  color: transparent;
+}
+
+.auto-complete {
+  border-radius: 0.6rem;
+  list-style-type: none;
+  padding: 0.6em;
+  position: absolute;
+  margin: 0.4em 0;
+  visibility: hidden;
+  width: 50%;
+}
+
+.auto-complete li {
+  padding: 0.4em;
+}
+
+.result:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown {
+  display: none; 
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  width: 2.4em;
+  height: 2.4em;
+}
+
+.navbar-nav {
+  margin-top: 1.4em;
+  text-align: right;
+}
+
+
+/***** MAIN CONTENT: REGISTER/LOGIN *****/
+
+.register-container,
+.login-container {
+  margin-top: 1em;
+}
+
+.auth-title img {
+  width: 60px;
+  height: 60px;
+}
+
+.auth-title h1 {
+  margin-top: 1em;
+  margin-bottom: 0.6em;
+}
+
+.registration-inputs,
+.login-inputs {
+  margin: 2em 0;
+}
+
+.registration-inputs input,
+.login-inputs input {
+  border-radius: 0.5rem;
+}
+
+.registration-inputs button,
+.login-inputs button {
+  margin-top: 1.2em;
+  width: 100%;
+}
+
+#loginLink,
+#registerLink {
+  margin-top: 0.8em;
+}
+
+/***** MAIN CONTENT: HOME *****/
+
+.dash-container {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.grand-total {
+  margin: 2em 0;
+}
+
+.cash {
+  margin: 2em 0;
+}
+
+.cash p {
+  font-size: 2rem;
+}
+
+.holdings {
+  margin: 2em 0;
+}
+
+.holding-title {
+  font-size: 2rem;
+}
+
+.holding-title p {
+  margin-bottom: 0;
+}
+
+.holding-price {
+  font-size: 1.4rem;
+}
+
+
+/***** MAIN CONTENT: STOCK OVERVIEW *****/
+
+.stock-overview-title {
+  margin-top: 3em;
+}
+
+.stock-overview-title p {
+  margin-bottom: -0.2em;
+}
+
+.stock-overview-graph {
+  margin: 2em 0;
+}
+
+.stock-overview-graph iframe {
+  width: 100%;
+  height: 40em;
+}
+
+.stock-overview-info {
+  margin: 1em 0;
+}
+
+.stock-error {
+  margin: 2em auto;
+}
+
+.btns.stock-overview-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.stock-overview-container button {
+  width: 10em;
+}
+
+.modal-title {
+  font-size: 2.4rem;
+}
+
+.modal-body {
+  font-size: 1.8rem;
+}
+
+/***** MAIN CONTENT: TRANSACTION HISTORY *****/
+
+.history-container {
+  margin-top: 2em;
+}
+
+.history-container h1 {
+  font-size: 3rem;
+}
+
+.history-container th {
+  font-size: 1.6rem;
+}
+
+.history-container td {
+  font-size: 1.6rem;
+}
+
+
+/***** MAIN CONTENT: ACCOUNT SETTINGS *****/
+
+.account-container {
+  margin-top: 2em;
+}
+
+.account-container h1 {
+  font-size: 3rem;
+}
+
+.account-container p {
+  font-size: 2rem;
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+
+.account-container button {
+  width: 100%;
+}
+
+.account-container .btn-outline-danger {
+  color: #dc3545;
+}
+
+.account-container .btn-outline-danger:hover {
+  color: white;
+}
+
+
+
+
+
+
+
+
+/* Landscape phones and tablets */
+
+@media (min-width: 576px) {
+
+
+  /***** GENERAL STYLES *****/
+
+
+
+
+  /***** GENERAL LAYOUT *****/
+
+
+  /***** HEADER AND NAVIGATION *****/
+
+  .navbar-brand-text {
+    display: inline-block;
+  }
+
+  .search {
+    min-width: 50%;
+  }
+
+  .auto-complete {
+    width: 48%;
+  }
+
+
+  /***** MAIN CONTENT: REGISTER/LOGON *****/
+
+  .register-container,
+  .login-container {
+    margin-top: 2em;
+    width: 70%;
+  }
+
+  /***** MAIN CONTENT: HOME *****/
+
+  .dash-container {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  /***** MAIN CONTENT: STOCK OVERVIEW *****/
+
+  .stock-overview-title {
+    margin-top: 4em;
+  }
+
+  .stock-overview-container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+
+
+  /***** MAIN CONTENT: ACCOUNT SETTINGS *****/
+
+  /*.btns {
+    display: block;
+    text-align: center;
+  }
+
+  .account-container .btns {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+  }
+  */
+
+  .account-container form {
+    display: flex;
+    justify-content: center;
+  }
+
+  .account-container button {
+    width: 30%;
+  }
+  
+
+}
+
+
+
+
+
+/* Laptops and desktops */
+@media (min-width: 992px) {
+
+
+  /***** GENERAL STYLES *****/
+
+  
+
+  /***** GENERAL LAYOUT *****/
+
+  
+
+
+  /***** HEADER AND NAVIGATION *****/
+
+  .search {
+    min-width: 30%;
+  }
+
+  .auto-complete {
+    width: 30%;
+  }
+
+  .navbar-nav {
+    display: none;
+  }
+
+  .navbar-collapse {
+    flex-grow: unset;
+  }
+
+  .dropdown {
+    display: inline-block;
+  }
+
+  .nav-link,
+  .nav-link:focus,
+  .nav-link:hover {
+    color: #09327A;
+    font-size: 1.8rem;
+  }
+  
+  .dropdown-menu {
+    font-size: 1.8rem;
+    border: none;
+  }
+
+  .dropdown-item {
+    color: #737373;
+    padding: 0.35em 0.75em;
+  }
+
+
+  /***** MAIN CONTENT: REGISTER/LOGIN *****/
+
+  .register-container,
+  .login-container {
+    margin-top: 4em;
+    width: 35%;
+  }
+
+
+  /***** MAIN CONTENT: HOME *****/
+
+  .dash-container {
+    margin: 0 auto;
+    width: 70%;
+  }
+
+
+  /***** MAIN CONTENT: STOCK OVERVIEW *****/
+
+  .stock-overview-container {
+    width: 85%;
+  }
+
+  .stock-overview-info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .stock-overview-info .card {
+    height: 50%;
+    width: 47%;
+  }
+
+
+  /***** MAIN CONTENT: ACCOUNT SETTINGS *****/
+
+  
+
+}

@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block title %} {{ stock }} {% endblock %}
+
+{% block main %}
+  <!-- Beginning of Status Error Message -->
+  {% if error == 'True' %}
+    <p>There was an error getting "{{ stock }}". Try searching something else.</p>
+  {% else %}
+    <!-- End of Status Error Message -->
+    <!-- Beginning of Stock Overview Title -->
+    <div class="stock-overview-title stock-overview-container">
+      <h2 class="primary-text-color">
+        {% if quoteInfo != 'empty data' and quoteInfo["c"] %} ${{ twoDecPlaces(quoteInfo["c"]) }} {% else %} -- {% endif %}
+      </h2>
+      <p class="secondary-text-color font-size-20 semi-bold">{{ stock }}</p>
+      <p class="secondary-text-color font-size-20 semi-bold">
+        {% if companyInfo != 'empty data' and companyInfo["name"] %} {{ companyInfo["name"] }} {% else %} -- {% endif %}
+      </p>
+    </div>
+    <!-- End of Stock Overview Title -->
+    <!-- Beginning of Stock Graph -->
+    <section class="stock-overview-graph stock-overview-container">
+      <iframe src="https://widget.finnhub.io/widgets/stocks/chart?symbol={{ stock }}&watermarkColor=%231db954&backgroundColor=%23222222&textColor=white"></iframe>
+    </section>
+    <!-- End of Stock Graph -->
+    <!-- Beginning of Stock Stats -->
+    <section class="stock-overview-info stock-overview-container">
+      <div class="card default-bg-color shadow-sm">
+        <div class="card-body">
+          <h3>Stats</h3>
+          <div class="stats row font-size-16">
+            <div class="col">
+              <p class="d-flex justify-content-between">
+                <span class="secondary-text-color">Open</span>
+                <span class="semi-bold">
+                  {% if quoteInfo != 'empty data' and quoteInfo["o"] %} {{ twoDecPlaces(quoteInfo["o"]) }} {% else %} -- {% endif %}
+                </span>
+              </p>
+              <hr>
+              <p class="d-flex justify-content-between">
+                <span class="secondary-text-color">High</span>
+                <span class="semi-bold">
+                  {% if quoteInfo != 'empty data' and quoteInfo["h"] %} {{ twoDecPlaces(quoteInfo["h"]) }} {% else %} -- {% endif %}
+                </span>
+              </p>
+              <hr>
+              <p class="d-flex justify-content-between">
+                <span class="secondary-text-color">Low</span>
+                <span class="semi-bold">
+                  {% if quoteInfo != 'empty data' and quoteInfo["l"] %} {{ twoDecPlaces(quoteInfo["l"]) }} {% else %} -- {% endif %}
+                </span>
+              </p>
+              <hr>
+              <p class="d-flex justify-content-between">
+                <span class="secondary-text-color">52 Wk High</span>
+                <span class="semi-bold">
+                  {% if financesInfo != 'empty data' and financesInfo["52WeekHigh"] %} {{ twoDecPlaces(financesInfo["52WeekHigh"]) }} {% else %} -- {% endif %}
+                </span>
+              </p>
+              <hr>
+              <p class="d-flex justify-content-between">
+                <span class="secondary-text-color">52 Wk Low</span>
+                <span class="semi-bold">
+                  {% if financesInfo != 'empty data' and financesInfo["52WeekLow"] %} {{ twoDecPlaces(financesInfo["52WeekLow"]) }} {% else %} -- {% endif %}
+                </span>
+              </p>
+              <hr>
+            </div>
+            <div class="col">
+              <p class="d-flex justify-content-between">
+                <span class="secondary-text-color">Volume</span>
+                <span class="semi-bold">
+                  {% if volumeInfo != 'empty data' and volumeInfo["06. volume"] %} {{ millify(volumeInfo["06. volume"]) }} {% else %} -- {% endif %}
+                </span>
+              </p>
+              <hr>
+              <p class="d-flex justify-content-between">
+                <span class="secondary-text-color">Avg Vol</span>
+                <span class="semi-bold">
+                  {% if financesInfo != 'empty data' and financesInfo["10DayAverageTradingVolume"] %} {{ twoDecPlaces(financesInfo["10DayAverageTradingVolume"]) }} {% else %} -- {% endif %}
+                </span>
+              </p>
+              <hr>
+              <p class="d-flex justify-content-between">
+                <span class="secondary-text-color">Mkt Cap</span>
+                <span class="semi-bold">
+                  {% if companyInfo != 'empty data' and companyInfo["marketCapitalization"] %} {{ millify(companyInfo["marketCapitalization"]) }} {% else %} -- {% endif %}
+                </span>
+              </p>
+              <hr>
+              <p class="d-flex justify-content-between">
+                <span class="secondary-text-color">P.E. Ratio</span>
+                <span class="semi-bold">
+                  {% if companyOverviewInfo != 'empty data' and companyOverviewInfo["PERatio"] != 'None' %} {{ twoDecPlaces(companyOverviewInfo["PERatio"]) }} {% else %} -- {% endif %}
+                </span>
+              </p>
+              <hr>
+              <p class="d-flex justify-content-between">
+                <span class="secondary-text-color">Div/Yield</span>
+                <span class="semi-bold">
+                  {% if companyOverviewInfo != 'empty data' and companyOverviewInfo["DividendYield"] != 'None' %} {{ twoDecPlaces(companyOverviewInfo["DividendYield"]) }} {% else %} -- {% endif %}
+                </span>
+              </p>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card default-bg-color shadow-sm">
+        <div class="card-body">
+          <h3>About</h3>
+          <p class="font-size-16 secondary-text-color">
+            {% if companyOverviewInfo != 'empty data' and companyOverviewInfo["Description"] != 'None' %} {{ companyOverviewInfo["Description"] }} {% else %} -- {% endif %}
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- End of Stock Stats -->
+    <!-- Beginning of Buy/Sell Options -->
+    {% if quoteInfo != 'empty data' and quoteInfo["c"] %}
+      <div class="btns stock-overview-container buy">
+        <button type="button" class="btn success-color" data-bs-toggle="modal" data-bs-target="#buyModal">Buy</button>
+      </div>
+      {% if hasStock %}
+        <div class="btns stock-overview-container sell">
+          <button type="button" class="btn info-color" data-bs-toggle="modal" data-bs-target="#sellModal">Sell</button>
+        </div>
+      {% endif %}
+    {% endif %}
+    <!-- End of Buy/Sell Options -->
+    <!-- Beginning of Buy Modal -->
+    <div class="modal fade" id="buyModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <form class="modal-content" id="buyForm" action="/buy" method="POST" autocomplete="off">
+          <div class="modal-header">
+            <h5 class="modal-title">Buy {{ stock }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body" id="buyBody">
+            {% if (cash > quoteInfo["c"]) %}
+              <p id="cash">Your current cash: ${{ cash }}</p>
+              <p>
+                One unit of {{ stock }} is ${{ twoDecPlaces(quoteInfo["c"]) }}. 
+              </p>
+              <p>How many units would you like to purchase?</p>
+              <input type="text" class="form-control font-size-18" id="buyUnitsInput" name="units" placeholder="# of units">
+              <input type="text" class="form-control d-none" name="symbol" value="{{stock}}">
+              <input type="text" class="form-control d-none" name="name" value="{{companyInfo["name"]}}"">
+              <input type="text" class="form-control d-none" name="price" value="{{twoDecPlaces(quoteInfo["c"])}}">
+            {% else %}
+              <p>You do not have enough cash to buy this stock.</p>
+            {% endif %}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            {% if (cash > quoteInfo["c"]) %}
+              <button type="submit" class="btn success-color">Buy</button>
+            {% endif %}
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- End of Buy Modal -->
+    <!-- Beginning of Sell Modal -->
+    <div class="modal fade" id="sellModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <form class="modal-content" id="sellForm" action="/sell" method="POST" autocomplete="off">
+          <div class="modal-header">
+            <h5 class="modal-title">Sell {{ stock }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body" id="sellBody">
+            <p id="shares">
+              You currently have {{ shares }} shares of {{ stock }}.
+            </p>
+            <p>
+              One unit of {{ stock }} is currently worth ${{ twoDecPlaces(quoteInfo["c"]) }}. 
+            </p>
+            <p>How many units would you like to sell?</p>
+            <input type="text" class="form-control font-size-18" id="sellUnitsInput" name="units" placeholder="# of units">
+            <input type="text" class="form-control d-none" name="symbol" value="{{stock}}">
+            <input type="text" class="form-control d-none" name="name" value="{{companyInfo["name"]}}"">
+            <input type="text" class="form-control d-none" name="price" value="{{twoDecPlaces(quoteInfo["c"])}}">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn success-color">Sell</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- End of Sell Modal -->
+  {% endif %}
+{% endblock %}
+
+{% block scripts %}
+  <script type="module" src="./static/js/stock.js"></script>
+{% endblock %}
