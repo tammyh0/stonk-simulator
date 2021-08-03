@@ -7,6 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from decimal import *
 import requests
 import math
+import os
 
 
 # Turn this program into a flask app
@@ -15,7 +16,8 @@ app = Flask(__name__)
 # Configure app
 app.config['SECRET_KEY'] = 'dev'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:yell0wsubmarine@localhost/stonks'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ynvxhyomwjwsnj:beff12085f7ee6b8f56951161081a3291455fda11a7ffddda7fcb2de81a8264f@ec2-44-194-183-115.compute-1.amazonaws.com:5432/d39gm4e67mnnbd'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ynvxhyomwjwsnj:beff12085f7ee6b8f56951161081a3291455fda11a7ffddda7fcb2de81a8264f@ec2-44-194-183-115.compute-1.amazonaws.com:5432/d39gm4e67mnnbd'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
 
 
 # Create and initialize database
