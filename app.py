@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_login import LoginManager
 from models import db, User
+import os
 
 
 # Turn this program into a flask app
