@@ -97,6 +97,7 @@ def twoDecPlaces(value):
 
 
 # Shorten extremely large numbers
+# Citation: https://stackoverflow.com/questions/3154460/python-human-readable-large-numbers
 def millify(value):
   millnames = ['','k','M','B','T']
   if value:
