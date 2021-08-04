@@ -139,7 +139,7 @@
           </div>
           <div class="modal-body" id="buyBody">
             {% if (cash > quoteInfo["c"]) %}
-              <p id="cash">Your current cash: ${{ cash }}</p>
+              <p id="cash">Your current cash: ${{ twoDecPlaces(cash) }}</p>
               <p>
                 One unit of {{ stock }} is ${{ twoDecPlaces(quoteInfo["c"]) }}. 
               </p>

@@ -94,7 +94,7 @@ def view():
 
   return render_template('stock/overview.html', error=error, stock=stock_symbol, username=username,
   quoteInfo=quoteInfo, financesInfo=financesInfo, companyInfo=companyInfo, companyOverviewInfo=companyOverviewInfo, volumeInfo=volumeInfo,
-  twoDecPlaces=twoDecPlaces, millify=millify, hideSearch=False, hasStock=hasStock, cash=twoDecPlaces(cash), shares=shares)
+  twoDecPlaces=twoDecPlaces, millify=millify, hideSearch=False, hasStock=hasStock, cash=cash, shares=shares)
 
 
 # Buy stock
