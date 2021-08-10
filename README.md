@@ -10,10 +10,13 @@ I was always curious about the stock market. No one ever taught me about it - no
 
 That's what gave me the idea to create this webapp. It takes away that risk of losing any actual money while learning how to invest in stocks. This project aims to bridge the gap between those with little financial knowledge and the world of investing. 
 
+### Learnings
 This was my first big project that I worked on and it's safe to say I learned quite a lot (and can apply to future projects). First of all, if things don't go as planned (and they probably won't), be willing to compromise and figure out another solution. For instance, the SQLite database that I used wasn't supported on Heroku so I spent a few days figuring out which other database to use and how to edit my current code to fit the new database in which I used PostgreSQL. Since I built a more complete webapp, a new skill that I learned was performing the different types of testing from unit to functional. I also sharpened my sense of time management as I had to make many decisions on what features I should prioritize on building and which ones to let go due to time restraints. Lastly, what I learned the most was how to be resourceful. I ran into so many bugs and errors throughout this project, and I was able to solve them through manual debugging, skimming through forums, searching through documentation, watching videos, and/or reading article posts.
 
+### Technologies 
 For the backend of this project, I used Python with the Flask framework, allowing me to handle forms, routes, and API calls. For the frontend, I used HTML, Bootstrap with some customized CSS, and JavaScript. Data was stored using PostgreSQL. I used these technologies they were easy to use considering I was building a full-blown webapp, thus using frameworks such as Flask and Bootstrap helped to abstract and simplify certain codes.
 
+### Challenges
 The biggest challenge that I faced was that this project kept taking longer than I had anticipated. This was because when I planned the project and sketched the webapp's features before building, I didn't consider the many little functionalities that the app needed. What I thought to be a two-week project slowly turned into a month-long project.
 
 ## Features ✨
@@ -59,8 +62,8 @@ Designed and developed by Tammy Ho, 2021.
 
 Need help on a project or just want to connect? Feel free to contact me via these socials! :)
 
-LinkedIn: linkedin.com/in/ho-tammy
+LinkedIn - https://www.linkedin.com/in/ho-tammy/
 
-Portfolio: tammyhho.com
+Portfolio - https://tammyhho.com/
 
-Email: tammyhho98@gmail.com
+Email - tammyhho98@gmail.com
