@@ -21,20 +21,28 @@ The biggest challenge that I faced was that this project kept taking longer than
 ### Personalized Account
 Create a personal accout via the registration form allowing you to store your information and login/logout. The Account settings lets you reset your cash and portfolio as well as delete your account.
 
-<img src="./static/README_imgs/registration.png" width="200" />
+<img src="./static/README_imgs/registration.png" width="300" />
 
 ### Stock Search
 Use the search bar to find a stock by the company's name or ticker symbol. You can then view more details about 
 that stock including it's current price, price over time through a graph, and it's key stats.
 
+<img src="./static/README_imgs/search.png" width="300" />
+
 ### Buy and Sell
 Simply choose which and how many stocks you want to purchase that fits within your cash limit, and easily sell them at any time.  
+
+<img src="./static/README_imgs/buy_stock.png" width="300" />
 
 ### Dashboard
 Get a clear view of all your holdings, your cash amount, and your portfolio value.
 
+<img src="./static/README_imgs/dashboard.png" width="300" />
+
 ### Transaction History
 View all the stocks you have purchased and sold, along with details of the transaction including its timestamp.
+
+<img src="./static/README_imgs/transaction_history.png" width="300" />
 
 ## Support 💖
 
