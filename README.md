@@ -59,8 +59,8 @@ Designed and developed by Tammy Ho, 2021.
 
 Need help on a project or just want to connect? Feel free to contact me via these socials! :)
 
-[LinkedIn] (https://www.linkedin.com/in/ho-tammy/)
+LinkedIn: linkedin.com/in/ho-tammy
 
-[Portfolio] (https://tammyhho.com/)
+Portfolio: tammyhho.com
 
-tammyhho98@gmail.com
+Email: tammyhho98@gmail.com
