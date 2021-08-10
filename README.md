@@ -21,7 +21,7 @@ The biggest challenge that I faced was that this project kept taking longer than
 ### Personalized Account
 Create a personal accout via the registration form allowing you to store your information and login/logout. The Account settings lets you reset your cash and portfolio as well as delete your account.
 
-![Registration Form](./static/README_imgs/registration.png)
+<img src="./static/README_imgs/registration.png" width="200" />
 
 ### Stock Search
 Use the search bar to find a stock by the company's name or ticker symbol. You can then view more details about 
