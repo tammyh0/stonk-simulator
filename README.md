@@ -1,3 +1,4 @@
+https://stonk-simulator.herokuapp.com/
 
 # Stonk Simulator
 
