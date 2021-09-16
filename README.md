@@ -1,4 +1,4 @@
-Live Site: https://stonk-simulator.herokuapp.com/
+Check out the live site! https://stonk-simulator.herokuapp.com/
 
 # Stonk Simulator
 
